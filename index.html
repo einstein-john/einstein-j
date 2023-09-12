@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Import your CSS file -->
+ <style>
+  /* Assuming you have a class named "header" defined in your CSS */
+.header {
+    background-color: transparent; /* Make the background transparent */
+    padding: 20px;
+    text-align: center;
+    width: 97.36%; /* Set the header to 100% width */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    position: absolute; /* Position the header absolutely */
+    top: 0; /* Place the header at the top of the container */
+    left: 0; /* Place the header at the left of the container */
+    z-index: 1; /* Make the header appear on top of other elements */
+  }
+  
+  /* Center the content inside the header */
+  .header nav {
+    display: flex;
+    align-items: center; /* Center the navigation links vertically */
+  }
+  
+  .header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .header li:last-child {
+    margin-right: 0;
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  
+  /* Home.css */
+  
+  .home {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set the height of the home section */
+    overflow: hidden;
+    
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-image: url('./assets/profile.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6); /* Adjust the brightness of the background image */
+  
+  }
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 50%;
+      transform: translateX(-100%) translateY(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%) translateY(-45);
+    }
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .home h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family:  sans-serif;
+    animation: slideInFromLeft 1.9s ease-in-out;
+    margin-top: auto;
+    
+  }
+  
+  .home h3 {
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    animation: slideInFromLeft 1.8s ease-in-out;
+    margin-bottom: auto;
+    color: chocolate;
+  }
+  .home p{
+    animation: slideInFromLeft 2.2s ease-in-out;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-stretch: ultra-expanded;
+    margin: auto;
+  }
+  
+  .names-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  }
+  
+  /*Portfolio.js*/
+  .portfolio {
+    text-align: center;
+    padding: 40px;
+    margin: 2%;
+    background-color: #2a2929;
+    color: #fff;
+    font-family: sans-serif;
+  }
+  .portfolio h2{
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family:  sans-serif;
+    margin-top: auto;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category {
+    text-align: left;
+    color: rgb(107, 106, 106);
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+  /* about */
+  
+  .about {
+    /* Your styles for the about section */
+    margin-bottom: 12%;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: flex-start; /* Center the content vertically */
+    flex-direction: row;
+  }
+  
+  .profile-image {
+    width: 600px;
+    height: 400px;
+    background-image: url('./assets/profile.jpg'); /* Replace with the actual image path */
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%; 
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 29px; /* Add some spacing between the image and the text */
+  }
+  
+  .text {
+    /* Your styles for the text content */
+    color: #fff;
+    font-family: sans-serif;
+    width: 50%;
+    margin-right: 2%;
+    padding: 0%;
+    margin-top: 0px;
+  
+  }
+  
+  .about h2{
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-family:  sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    color: chocolate;
+  }
+  
+  .about p{
+    width: 70%;
+    font-size: 22;
+    font-weight: lighter;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
+  }
+  
+   .cv-button {
+    background-color:#d2691e; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 50%;
+    border-radius: 30px;
+  }
+  .hire-button {
+    background-color: #9f9f9f; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    margin-left: 10%;
+  } /* Gray */
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between; /* Add space between the buttons */
+    margin-top: 20px; /* Add some spacing between the buttons and the text */
+  }
+  /* contact page*/
+  .contact-box {
+    margin-top: 1%;
+    margin: auto;
+    margin-right: 31%;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 20, 20, 0.987);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .contact-box .user-box {
+    position: relative;
+  }
+  
+  .contact-box .user-box input,
+  .contact-box .user-box textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .contact-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .contact-box .user-box input:focus ~ label,
+  .contact-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
+  
+  .contact-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  .contact-box a:hover {
+    background: #d2691e;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #d2691e,
+                0 0 25px #d2691e,
+                0 0 50px #d2691e,
+                0 0 100px #d2691e;
+  }
+  
+  .contact-box a span {
+    position: absolute;
+    display: block;
+  }
+  .contact-box h2:nth-child(1) {
+    color: #fff;
+    margin-bottom: 30px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .contact-box h2:nth-child(1)::after {
+    content: "";
+    position: absolute;
+    margin-bottom: -5px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #d2691e, transparent);
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .contact-box a span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d2691e);
+    animation: btn-anim1 2s linear infinite;
+  }
+  .contact-info {
+    color: #655f5f; /* Set the text color for contact info */
+    text-align: left;
+    margin-left: 52%; /* Adjust the margin as needed */
+  }
+
+  .contact-info h2 {
+    font-size: 24px;
+   
+  }
+
+  .contact-info p {
+    margin: 5px 0;
+  }
+  a {
+    color: inherit; /* Inherit the text color from the parent */
+    text-decoration: none; /* Remove underline */
+  }
+ </style>
+ <title>einstein-john</title>
+</head>
+<body style="width: 100%; background-color: #2a2929; margin: 0;">
+  <!-- Header Component -->
+  <header class="header">
+    <nav>
+      <ul>
+        <li><a href="#">Home</li></a>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#messages">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Component -->
+  <div id="home">
+  <div class="home">
+    <div class="background-image"></div>
+    <div class="content">
+      <div class="names-container">
+        <h3>Hello I'm</h3>
+        <h2><b>Einstein John</b></h2>
+      </div>
+      <p>AND THIS IS MY RESUME</p>
+    </div>
+  </div>
+</div>
+  <!-- Portfolio Component -->
+  <div id="portfolio">
+  <div class="portfolio">
+    <h2>My Portfolio</h2>
+    
+    <div class="gallery">
+      <img src="./assets/king.jpg" alt="Graphic Design Project 1" />
+      <img src="./assets/Olindas.jpg" alt="Graphic Design Project 2" />
+      <img src="./assets/king.jpg" alt="Graphic Design Project 1" />
+      <img src="./assets/Olindas.jpg" alt="Graphic Design Project 2" />
+    </div>
+  </div>
+</div>
+
+  <!-- About Component -->
+  <div id="about">
+  <div class="about">
+    <div class="about-content">
+      <div class="profile-image"></div>
+      <div class="text">
+        <h2>About Me</h2>
+        <p>
+          Highly skilled and motivated software developer with a passion for creating efficient and innovative solutions. Experienced in logo design and graphic design, with a strong foundation in computer engineering. Committed to delivering high-quality software products that meet client needs and exceed expectations. Constantly seeking opportunities to expand knowledge and stay up-to-date with emerging technologies.
+        </p>
+        <div class="buttons">
+          <button  class="hire-button" onclick="scrollToMessages()">Hire Me</button>
+          <button class="cv-button" onclick="DownloadCV()">Download CV</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Contact Component --> 
+  <div id="messages">
+   <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p>Email: <a href="mailto:damtowise04@gmail.com">damtowise04@gmail.com</a></p>
+      <p>Phone: +90 533 885 66 04</p>
+      <p>Phone: +234 808 412 6474</p>
+      <!-- Add more contact details as needed -->
+    </div>
+
+  <div class="contact-box">
+  
+    <h2>Hire me</h2>
+    <form>
+      <div class="user-box">
+        <input type="text" name="" required="">
+        <label>Name</label>
+      </div>
+      <div class="user-box">
+        <input type="email" name="" required="">
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+       <textarea placeholder="‎" id="comment" name="comment" rows="5" required=""></textarea>
+        <label>Message</label>
+      </div><center>
+      <a href="#">
+             SEND
+         <span></span>
+      </a></center>
+    </form>
+  </div>
+  </div>
+  <script>
+    function scrollToMessages() {
+      var messagesDiv = document.getElementById('messages');
+      if (messagesDiv) {
+        messagesDiv.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    function DownloadCV(){
+        window.open("https://1drv.ms/b/s!AmAbZK_VoepRkX7ovdTLiZY-F4vp?e=lVhAvN")
+    }
+  </script>
+</body>
+</html>
